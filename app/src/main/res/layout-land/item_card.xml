@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="item"
+            type="com.example.giphyapi.data.api.ApiResult" />
+        <variable
+            name="ClickListener"
+            type="com.example.giphyapi.adapter.GiphyAdapter.GifClickListener" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:onClick="@{() -> ClickListener.onClick(item)}"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="1dp">
+
+        <ImageView
+            android:id="@+id/imageViewGif"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            app:imageUrl="@{item.downsizedGif}"
+            android:src="@drawable/ic_launcher_background" />
+    </androidx.cardview.widget.CardView>
+</layout>
